@@ -40,9 +40,13 @@ POTENTIAL USE-CASES
 This section outlines the different components that must be created in order to create a fully functional application. The views have been explained below, and have been assigned for completion:
 
 User creation / log in - collaboration
+
 User Profile - person 1
+
 Notifications - person 1
+
 Store locator - person 2
+
 Deal Tracker - person 2
 
 OPTIONAL ADD ONS
