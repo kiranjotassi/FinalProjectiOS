@@ -50,7 +50,7 @@ POTENTIAL USE-CASES
 
 This section outlines the different components that must be created in order to create a fully functional application. The views have been explained below, and have been assigned for completion:
 
-User creation / log in - collaboration
+User creation / log in - person 3
 
 User Profile - person 1
 
@@ -73,3 +73,5 @@ Work Distribution
 Person 1: Kiran (assik, 991505013)
 
 Person 2: Patrick (ouelletp, 991292114)
+
+Person 3: Iano Francisco
