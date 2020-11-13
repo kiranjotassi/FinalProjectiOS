@@ -10,6 +10,7 @@
 		9852B6FE255ED4DA00812D99 /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B6FD255ED4DA00812D99 /* testModel.swift */; };
 		9852B701255ED4E400812D99 /* testController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B700255ED4E400812D99 /* testController.swift */; };
 		98A1998D255EE21500746C70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98A1998C255EE21500746C70 /* GoogleService-Info.plist */; };
+		98A19990255F070100746C70 /* AccountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A1998F255F070100746C70 /* AccountInformation.swift */; };
 		98E2775E2539C6450034B9F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2775D2539C6450034B9F4 /* AppDelegate.swift */; };
 		98E277602539C6450034B9F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2775F2539C6450034B9F4 /* SceneDelegate.swift */; };
 		98E277622539C6450034B9F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E277612539C6450034B9F4 /* ContentView.swift */; };
@@ -25,6 +26,7 @@
 		9852B6FD255ED4DA00812D99 /* testModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testModel.swift; sourceTree = "<group>"; };
 		9852B700255ED4E400812D99 /* testController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testController.swift; sourceTree = "<group>"; };
 		98A1998C255EE21500746C70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		98A1998F255F070100746C70 /* AccountInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformation.swift; sourceTree = "<group>"; };
 		98E2775A2539C6450034B9F4 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E2775D2539C6450034B9F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E2775F2539C6450034B9F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				98E277612539C6450034B9F4 /* ContentView.swift */,
+				98A1998F255F070100746C70 /* AccountInformation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9852B6FE255ED4DA00812D99 /* testModel.swift in Sources */,
+				98A19990255F070100746C70 /* AccountInformation.swift in Sources */,
 				98E2775E2539C6450034B9F4 /* AppDelegate.swift in Sources */,
 				98E277602539C6450034B9F4 /* SceneDelegate.swift in Sources */,
 				9852B701255ED4E400812D99 /* testController.swift in Sources */,
