@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9852B6ED255ECF5B00812D99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9852B6EC255ECF5B00812D99 /* GoogleService-Info.plist */; };
-		9852B6F1255ED16200812D99 /* testController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B6F0255ED16200812D99 /* testController.swift */; };
-		9852B6F3255ED17E00812D99 /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B6F2255ED17E00812D99 /* testModel.swift */; };
+		9852B6FE255ED4DA00812D99 /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B6FD255ED4DA00812D99 /* testModel.swift */; };
+		9852B701255ED4E400812D99 /* testController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B700255ED4E400812D99 /* testController.swift */; };
 		98E2775E2539C6450034B9F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2775D2539C6450034B9F4 /* AppDelegate.swift */; };
 		98E277602539C6450034B9F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2775F2539C6450034B9F4 /* SceneDelegate.swift */; };
 		98E277622539C6450034B9F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E277612539C6450034B9F4 /* ContentView.swift */; };
@@ -21,8 +21,8 @@
 
 /* Begin PBXFileReference section */
 		9852B6EC255ECF5B00812D99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9852B6F0255ED16200812D99 /* testController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = testController.swift; path = ../../../../Downloads/testController.swift; sourceTree = "<group>"; };
-		9852B6F2255ED17E00812D99 /* testModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = testModel.swift; path = ../../../../Downloads/testModel.swift; sourceTree = "<group>"; };
+		9852B6FD255ED4DA00812D99 /* testModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testModel.swift; sourceTree = "<group>"; };
+		9852B700255ED4E400812D99 /* testController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testController.swift; sourceTree = "<group>"; };
 		98E2775A2539C6450034B9F4 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E2775D2539C6450034B9F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E2775F2539C6450034B9F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,14 +45,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0245A06E255ECEBB00203D90 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9852B6F2255ED17E00812D99 /* testModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		0245A06F255ECEC800203D90 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,12 +53,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0245A070255ECED600203D90 /* Controller */ = {
+		9852B6FB255ED4BD00812D99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9852B6F0255ED16200812D99 /* testController.swift */,
+				9852B700255ED4E400812D99 /* testController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9852B6FC255ED4C500812D99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9852B6FD255ED4DA00812D99 /* testModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		98E277512539C6450034B9F4 = {
@@ -88,9 +88,9 @@
 		98E2775C2539C6450034B9F4 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				0245A070255ECED600203D90 /* Controller */,
+				9852B6FC255ED4C500812D99 /* Model */,
+				9852B6FB255ED4BD00812D99 /* Controller */,
 				0245A06F255ECEC800203D90 /* View */,
-				0245A06E255ECEBB00203D90 /* Model */,
 				9852B6EC255ECF5B00812D99 /* GoogleService-Info.plist */,
 				98E2775D2539C6450034B9F4 /* AppDelegate.swift */,
 				98E2775F2539C6450034B9F4 /* SceneDelegate.swift */,
@@ -182,10 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9852B6F1255ED16200812D99 /* testController.swift in Sources */,
+				9852B6FE255ED4DA00812D99 /* testModel.swift in Sources */,
 				98E2775E2539C6450034B9F4 /* AppDelegate.swift in Sources */,
 				98E277602539C6450034B9F4 /* SceneDelegate.swift in Sources */,
-				9852B6F3255ED17E00812D99 /* testModel.swift in Sources */,
+				9852B701255ED4E400812D99 /* testController.swift in Sources */,
 				98E277652539C6450034B9F4 /* FinalProject.xcdatamodeld in Sources */,
 				98E277622539C6450034B9F4 /* ContentView.swift in Sources */,
 			);
