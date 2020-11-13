@@ -60,13 +60,9 @@ Store locator - person 2
 
 Deal Tracker - person 2
 
-OPTIONAL ADD ONS
-
-These features are extra, if time allows they can be added in: 
-
 Quick buy - reserve in store / send to address - collaboration
 
-User can decide whether they want to shop online or in store - collaboration
+User can decide whether they want to shop online or in store - person 3
 
 Work Distribution
 
