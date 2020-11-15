@@ -10,18 +10,16 @@ import SwiftUI
 struct AccountInformation: View {
     var body: some View {
         NavigationView{
-            
-        VStack{
+            VStack{
                 Section{
-                    Image(systemName: "Contact")
-                        
+                    //https://sfsymbols.com/
+                    Image(systemName: "person.circle")
+                        .padding()
+                        .font(.system(size: 100))
                 }
-                Text("User Information")
-                    .font(.title)
-                    .frame(alignment: .leading)
                 HStack{
                     Section{
-                        Text("Name ")
+                        Text("Name")
                             .padding()
                             .font(.headline)
                         Spacer()
@@ -30,7 +28,7 @@ struct AccountInformation: View {
                             .padding()
                     }
                 }//Section
-            HStack{
+                HStack{
                     Section{
                         Text("Last Location")
                             .padding()
@@ -39,41 +37,42 @@ struct AccountInformation: View {
                         Text("Toronto Premium Outlet")
                             .padding()
                     }
-            }
-            HStack{
-                Section{
-                    Text("Number of Deals Used")
-                        .padding()
-                        .font(.headline)
-                    Spacer()
-                    Text("5")
-                        .padding()
                 }
-            }
-                Section{
-                    Text("User Preferences")
-                        .padding()
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .frame(alignment: .leading)
+                HStack{
+                    Section{
+                        Text("Number of Deals Used")
+                            .padding()
+                            .font(.headline)
+                        Spacer()
+                        Text("5")
+                            .padding()
+                    }
+                }
                 
-            List{
-               //TODO: This is where the list of user prefererred tags will go
-                //-> will populate by default for now until we have the DB set up
-                Text("Books")
-                Text("Clothing")
-                Text("Designer")
-                Text("Food")
-                Text("Groceries")
-            }
-            }//List
-        }//VStack
+                Text("Shopping Preferences")
+                    .padding()
+                    .font(.title)
+                    .frame(alignment: .leading)
+                
+                List{
+                    //TODO: This is where the list of user prefererred tags will go
+                    //-> will populate by default for now until we have the DB set up
+                    Text("Books")
+                    Text("Clothing")
+                    Text("Designer")
+                    Text("Food")
+                    Text("Groceries")
+                }//List
+            }//VStack
+            .navigationBarTitle("Account Info", displayMode: .inline)
+            .navigationBarBackButtonHidden(false)
         }//NavigationView
-        .navigationBarTitle("User Account Information")
+        
     }
 }
 
 struct AccountInformation_Previews: PreviewProvider {
     static var previews: some View {
-        AccountInformation()
+            AccountInformation()
     }
 }
