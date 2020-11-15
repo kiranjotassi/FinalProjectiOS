@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct Notifications: View {
+    @State private var selection: Int? = nil
+    
+    
     var body: some View {
+        
+        
+        
         NavigationView{
                 List{
                     //NOTIFICATIONS WILL BE ADDED AUTOMATICALLY ONCE THE DB IS IMPLEMENTED -> populated by default for now
@@ -17,9 +23,22 @@ struct Notifications: View {
                     Text("Your item has successfully been shipped. Check back soon for your tracking details!.")
                 }
             .navigationBarTitle("Notifications", displayMode: .inline)
-            .navigationBarBackButtonHidden(false)
+            .navigationBarItems(trailing:
+                                        Button(action: {
+                                            print("User Account Clicked")
+                                            self.selection = 1
+                                        }){
+    //                                        Text("Settings")
+    //                                        https://sfsymbols.com/
+                                            Image(systemName: "person.circle")
+                                        }
+                )
+            .navigationViewStyle(StackNavigationViewStyle())
             
         }//NavigationView
+        
+        //go to user account information when button is clicked
+        NavigationLink(destination: AccountInformation(), tag: 1, selection: $selection){}
         
     }
 }
