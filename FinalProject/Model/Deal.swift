@@ -15,16 +15,18 @@ struct Deal : Codable, Hashable {
     var image: String = ""
     var advertisedDeal: String = ""
     var dealLocation: String = ""
+    var tagArray: Array<String> = []
     var dealLat: Double = 0.0
     var dealLng: Double = 0.0
     
     init(){}
     
-    init(store: String, image: String, advertisedDeal: String, dealLocation: String){
+    init(store: String, image: String, advertisedDeal: String, dealLocation: String, tagArray: Array<String>){
         
         self.store = store
         self.image = image
         self.advertisedDeal = advertisedDeal
         self.dealLocation = dealLocation
+        self.tagArray = tagArray
     }
 }
