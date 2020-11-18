@@ -13,8 +13,6 @@ struct Notifications: View {
     
     var body: some View {
         
-        
-        
         NavigationView{
                 List{
                     //NOTIFICATIONS WILL BE ADDED AUTOMATICALLY ONCE THE DB IS IMPLEMENTED -> populated by default for now
