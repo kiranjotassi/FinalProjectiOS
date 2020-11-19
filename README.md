@@ -50,7 +50,7 @@ POTENTIAL USE-CASES
 
 This section outlines the different components that must be created in order to create a fully functional application. The views have been explained below, and have been assigned for completion:
 
-User creation / log in - person 3
+User creation / log in - collaboration
 
 User Profile - person 1
 
@@ -60,9 +60,11 @@ Store locator - person 2
 
 Deal Tracker - person 2
 
+FEATURES TO IMPLEMENT IF TIME PERMITES
+
 Quick buy - reserve in store / send to address - collaboration
 
-User can decide whether they want to shop online or in store - person 3
+User can decide whether they want to shop online or in store - collaboration
 
 Work Distribution
 
