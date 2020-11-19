@@ -25,65 +25,65 @@ class DealViewModel: ObservableObject{
         }
     }
     
-    func getDealsByTag(){
-//    func getDealsByTag(tagArray){
-//        let tagArray == an array of tags from the user preferences
-//        TODO: Change once user preferences is complete
-//              maybe pass the tag array as an arg
-        let tagArray = ["Book", "Food"]
-        
-        db.collection(COLLECTION_NAME)
-            .whereField("tagArray", isEqualTo: tagArray as Any)
-            .order(by: "store", descending: true)
-            .addSnapshotListener({ (querySnapshot, error) in
-                
-                guard let snapshot = querySnapshot else{
-                    print(#function, "Error fetching documents \(error!.localizedDescription)")
-                    return
-                }
-                
-                //succesfully received documents
-                snapshot.documentChanges.forEach{(doc) in
-                    var deal = Deal()
-                    
-                    do{
-                        deal = try doc.document.data(as: Deal.self)!
-                        
-                        if doc.type == .added{
-                            
-                            if (!self.dealList.contains(deal)){
-                                self.dealList.append(deal)
-                            }
-                        }
-                        
-                        if doc.type == .modified{
-                            //TODO for updated document
-                        }
-                        
-                        if doc.type == .removed{
-                            //TODO for deleted document
-                            let docID = doc.document.documentID
-                            
-                            let index = self.dealList.firstIndex(where: {
-                                ($0.id?.elementsEqual(docID))!
-                            })
-                            
-                            if (index != nil){
-                                self.dealList.remove(at: index!)
-                            }
-                        }
-                        
-                        self.dealList.sort{ (currentObj, nextObj) in
-                            currentObj.store > nextObj.store
-                        }
-                        
-//                        print(#function, "Deal List : ", self.dealList)
-                    }catch let error as NSError{
-                        print("Error decoding document : \(error.localizedDescription)")
-                    }
-                }
-            })
-    }
+//    func getDealsByTag(){
+////    func getDealsByTag(tagArray){
+////        let tagArray == an array of tags from the user preferences
+////        TODO: Change once user preferences is complete
+////              maybe pass the tag array as an arg
+//        let tagArray = ["Book", "Food"]
+//
+//        db.collection(COLLECTION_NAME)
+//            .whereField("tagArray", isEqualTo: tagArray as Any)
+//            .order(by: "store", descending: true)
+//            .addSnapshotListener({ (querySnapshot, error) in
+//
+//                guard let snapshot = querySnapshot else{
+//                    print(#function, "Error fetching documents \(error!.localizedDescription)")
+//                    return
+//                }
+//
+//                //succesfully received documents
+//                snapshot.documentChanges.forEach{(doc) in
+//                    var deal = Deal()
+//
+//                    do{
+//                        deal = try doc.document.data(as: Deal.self)!
+//
+//                        if doc.type == .added{
+//
+//                            if (!self.dealList.contains(deal)){
+//                                self.dealList.append(deal)
+//                            }
+//                        }
+//
+//                        if doc.type == .modified{
+//                            //TODO for updated document
+//                        }
+//
+//                        if doc.type == .removed{
+//                            //TODO for deleted document
+//                            let docID = doc.document.documentID
+//
+//                            let index = self.dealList.firstIndex(where: {
+//                                ($0.id?.elementsEqual(docID))!
+//                            })
+//
+//                            if (index != nil){
+//                                self.dealList.remove(at: index!)
+//                            }
+//                        }
+//
+//                        self.dealList.sort{ (currentObj, nextObj) in
+//                            currentObj.store > nextObj.store
+//                        }
+//
+////                        print(#function, "Deal List : ", self.dealList)
+//                    }catch let error as NSError{
+//                        print("Error decoding document : \(error.localizedDescription)")
+//                    }
+//                }
+//            })
+//    }
 
     func getAllDeals(){
         
