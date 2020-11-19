@@ -11,6 +11,8 @@
 		02C4A52F2561D04100B30B3B /* StoreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4A52E2561D04100B30B3B /* StoreMapView.swift */; };
 		02C4A5322561D0F700B30B3B /* DealTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4A5312561D0F700B30B3B /* DealTrackerView.swift */; };
 		02C4A5362561F58200B30B3B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4A5352561F58200B30B3B /* LocationManager.swift */; };
+		98060F5C2566C93D007A9B9A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98060F5B2566C93D007A9B9A /* UserViewModel.swift */; };
+		98060F672566D314007A9B9A /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98060F662566D314007A9B9A /* Users.swift */; };
 		9852B6FE255ED4DA00812D99 /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B6FD255ED4DA00812D99 /* testModel.swift */; };
 		9852B701255ED4E400812D99 /* testController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B700255ED4E400812D99 /* testController.swift */; };
 		98A19990255F070100746C70 /* AccountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A1998F255F070100746C70 /* AccountInformation.swift */; };
@@ -31,6 +33,8 @@
 		02C4A52E2561D04100B30B3B /* StoreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMapView.swift; sourceTree = "<group>"; };
 		02C4A5312561D0F700B30B3B /* DealTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealTrackerView.swift; sourceTree = "<group>"; };
 		02C4A5352561F58200B30B3B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		98060F5B2566C93D007A9B9A /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		98060F662566D314007A9B9A /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		9852B6FD255ED4DA00812D99 /* testModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testModel.swift; sourceTree = "<group>"; };
 		9852B700255ED4E400812D99 /* testController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testController.swift; sourceTree = "<group>"; };
 		98A1998F255F070100746C70 /* AccountInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformation.swift; sourceTree = "<group>"; };
@@ -97,6 +101,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		98060F5A2566C921007A9B9A /* view model */ = {
+			isa = PBXGroup;
+			children = (
+				98060F5B2566C93D007A9B9A /* UserViewModel.swift */,
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
 		9852B6FB255ED4BD00812D99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				9852B6FD255ED4DA00812D99 /* testModel.swift */,
+				98060F662566D314007A9B9A /* Users.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +147,7 @@
 		98E2775C2539C6450034B9F4 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				98060F5A2566C921007A9B9A /* view model */,
 				9852B6FC255ED4C500812D99 /* Model */,
 				9852B6FB255ED4BD00812D99 /* Controller */,
 				0245A06F255ECEC800203D90 /* View */,
@@ -274,10 +288,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				98A199932561BCFE00746C70 /* Notifications.swift in Sources */,
+				98060F5C2566C93D007A9B9A /* UserViewModel.swift in Sources */,
 				9852B6FE255ED4DA00812D99 /* testModel.swift in Sources */,
 				98A19990255F070100746C70 /* AccountInformation.swift in Sources */,
 				02C4A5362561F58200B30B3B /* LocationManager.swift in Sources */,
 				02C4A5322561D0F700B30B3B /* DealTrackerView.swift in Sources */,
+				98060F672566D314007A9B9A /* Users.swift in Sources */,
 				98E2775E2539C6450034B9F4 /* AppDelegate.swift in Sources */,
 				98E277602539C6450034B9F4 /* SceneDelegate.swift in Sources */,
 				9852B701255ED4E400812D99 /* testController.swift in Sources */,
