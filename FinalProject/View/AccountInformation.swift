@@ -77,6 +77,10 @@ struct AccountInformation: View {
                 List{
                     //TODO: This is where the list of user prefererred tags will go
                     //-> will populate by default for now until we have the DB set up
+                    
+                    ForEach(self.userViewModel.preferenceList, id: \.self){(preference) in
+                        Text("\(preference.preferences)")
+                    }
                     Text("Books")
                     Text("Clothing")
                     Text("Designer")
