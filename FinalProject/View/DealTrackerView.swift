@@ -52,10 +52,10 @@ struct DealTrackerView: View {
             }//ZStack
             .navigationBarTitle("Available Deals", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
-//            .onAppear(){
-//                self.parkingViewModel.parkingList.removeAll()
-//                self.parkingViewModel.getAllParkings()
-//            }
+            .onAppear(){
+                self.dealViewModel.dealList.removeAll()
+                self.dealViewModel.getAllDeals()
+            }
         }//NavigationView
     }
 }
