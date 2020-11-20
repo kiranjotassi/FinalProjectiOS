@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct AccountInformation: View {
+    @Environment(\.presentationMode) var presentationMode
     
     @State private var selection: Int? = nil
+    @State private var sheetShowing = false
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    
+    @State private var preference = ""
+    @State private var email = ""
     
     var body: some View {
         NavigationView{
@@ -59,9 +66,21 @@ struct AccountInformation: View {
                     .font(.title)
                     .frame(alignment: .leading)
                 
+                Button(action:{
+                    self.sheetShowing = true
+                }){
+                    Text("Add Preference")
+                }
+                
+                
+                
                 List{
                     //TODO: This is where the list of user prefererred tags will go
                     //-> will populate by default for now until we have the DB set up
+                    
+                    ForEach(self.userViewModel.preferenceList, id: \.self){(preference) in
+                        Text("\(preference.preferences)")
+                    }
                     Text("Books")
                     Text("Clothing")
                     Text("Designer")
@@ -71,8 +90,34 @@ struct AccountInformation: View {
             }//VStack
             .navigationBarTitle("Account Info", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
+            //adding a new preference
+            //open sheet
+            .sheet(isPresented: $sheetShowing){
+                TextField("Enter a deal you would like to watch.", text: $preference)
+                Button(action:{
+                    if preference == "" || preference == " " {
+                    }else{
+                        //go to method
+                        self.addPreference()
+                    }
+                    //reset values
+                    preference = ""
+                    sheetShowing = false
+                }){
+                    Text("Add Preference")
+                }
+            }
         }//NavigationView
+    }
+    //supposed to add the new preference
+    private func addPreference(){
+        var newPreference = User()
+        newPreference.email = self.email
+        newPreference.preferences = self.preference
         
+        print(#function, "New Preference : \(newPreference)")
+        //AAAAAAAAA this adds the new preference in...hopefully
+        userViewModel.addPreferences(newPreference: newPreference)
     }
 }
 

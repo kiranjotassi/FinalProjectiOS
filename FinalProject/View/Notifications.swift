@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct Notifications: View {
+    @Environment(\.presentationMode) var presentationMode
     @State private var selection: Int? = nil
+    //go to user account information when button is clicked
     
     
     var body: some View {
-        
         
         
         NavigationView{
@@ -23,8 +24,11 @@ struct Notifications: View {
                     Text("Your item has successfully been shipped. Check back soon for your tracking details!.")
                 }
             .navigationBarTitle("Notifications", displayMode: .inline)
-            .navigationBarItems(trailing:
-                                        Button(action: {
+            
+                .navigationBarItems(leading:
+                                        
+                                        NavigationLink(destination: AccountInformation(), tag: 1, selection: $selection){},
+                                    trailing: Button(action: {
                                             print("User Account Clicked")
                                             self.selection = 1
                                         }){
@@ -37,8 +41,7 @@ struct Notifications: View {
             
         }//NavigationView
         
-        //go to user account information when button is clicked
-        NavigationLink(destination: AccountInformation(), tag: 1, selection: $selection){}
+        
         
     }
 }
