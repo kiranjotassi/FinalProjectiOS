@@ -12,9 +12,8 @@
 		02C4A5322561D0F700B30B3B /* DealTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4A5312561D0F700B30B3B /* DealTrackerView.swift */; };
 		02C4A5362561F58200B30B3B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4A5352561F58200B30B3B /* LocationManager.swift */; };
 		02F2F8522564358400C3CB5C /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F8512564358400C3CB5C /* Deal.swift */; };
-		02F2F8562564466E00C3CB5C /* DealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F8552564466E00C3CB5C /* DealViewModel.swift */; };
 		02F2F86E2567426200C3CB5C /* DealMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2F86D2567426200C3CB5C /* DealMakerView.swift */; };
-		02FC57BE2567FCE200BD6A26 /* DealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC57BD2567FCE200BD6A26 /* DealViewModel.swift */; };
+		02FC581725680B3600BD6A26 /* DealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC581625680B3600BD6A26 /* DealViewModel.swift */; };
 		98060F5C2566C93D007A9B9A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98060F5B2566C93D007A9B9A /* UserViewModel.swift */; };
 		98060F672566D314007A9B9A /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98060F662566D314007A9B9A /* Users.swift */; };
 		9852B6FE255ED4DA00812D99 /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9852B6FD255ED4DA00812D99 /* testModel.swift */; };
@@ -38,9 +37,8 @@
 		02C4A5312561D0F700B30B3B /* DealTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealTrackerView.swift; sourceTree = "<group>"; };
 		02C4A5352561F58200B30B3B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		02F2F8512564358400C3CB5C /* Deal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
-		02F2F8552564466E00C3CB5C /* DealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewModel.swift; sourceTree = "<group>"; };
 		02F2F86D2567426200C3CB5C /* DealMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealMakerView.swift; sourceTree = "<group>"; };
-		02FC57BD2567FCE200BD6A26 /* DealViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewModel.swift; sourceTree = "<group>"; };
+		02FC581625680B3600BD6A26 /* DealViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewModel.swift; sourceTree = "<group>"; };
 		98060F5B2566C93D007A9B9A /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		98060F662566D314007A9B9A /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		9852B6FD255ED4DA00812D99 /* testModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testModel.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 		02FC57B82567FC8500BD6A26 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				02F2F8552564466E00C3CB5C /* DealViewModel.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -121,7 +118,7 @@
 		98060F5A2566C921007A9B9A /* view model */ = {
 			isa = PBXGroup;
 			children = (
-				02FC57BD2567FCE200BD6A26 /* DealViewModel.swift */,
+				02FC581625680B3600BD6A26 /* DealViewModel.swift */,
 				98060F5B2566C93D007A9B9A /* UserViewModel.swift */,
 			);
 			path = "view model";
@@ -307,8 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02F2F8562564466E00C3CB5C /* DealViewModel.swift in Sources */,
 				98A199932561BCFE00746C70 /* Notifications.swift in Sources */,
+				02FC581725680B3600BD6A26 /* DealViewModel.swift in Sources */,
 				98060F5C2566C93D007A9B9A /* UserViewModel.swift in Sources */,
 				9852B6FE255ED4DA00812D99 /* testModel.swift in Sources */,
 				98A19990255F070100746C70 /* AccountInformation.swift in Sources */,
@@ -318,7 +315,6 @@
 				02F2F86E2567426200C3CB5C /* DealMakerView.swift in Sources */,
 				98060F672566D314007A9B9A /* Users.swift in Sources */,
 				98E2775E2539C6450034B9F4 /* AppDelegate.swift in Sources */,
-				02FC57BE2567FCE200BD6A26 /* DealViewModel.swift in Sources */,
 				98E277602539C6450034B9F4 /* SceneDelegate.swift in Sources */,
 				9852B701255ED4E400812D99 /* testController.swift in Sources */,
 				02C4A52F2561D04100B30B3B /* StoreMapView.swift in Sources */,
