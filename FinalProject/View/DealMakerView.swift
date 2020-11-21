@@ -29,7 +29,7 @@ struct DealMakerView: View {
                     TextField("Image Link", text: $image)
                     TextField("Advertised Deal", text: $advertisedDeal)
 //  TODO turn tag into a multiSelect then append all tags to tag array
-                    TextField("Advertised Deal", text: $tag).autocapitalization(.words)
+                    TextField("Category Tag", text: $tag).autocapitalization(.words)
                     Text("Store wide sale at some X% off               Item name with price or X% off")
                 }
                 
