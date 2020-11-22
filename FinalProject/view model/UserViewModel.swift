@@ -31,7 +31,7 @@ public class UserViewModel: ObservableObject{
             .addSnapshotListener({ (querySnapshot, error) in
             
                 guard let snapshot = querySnapshot else{
-                    print(#function, "Error fetching documents \(error?.localizedDescription)")
+                    //print(#function, "Error fetching documents \(error?.localizedDescription)")
                     return
                 }
                 
