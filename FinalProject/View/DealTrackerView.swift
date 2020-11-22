@@ -55,7 +55,9 @@ struct DealTrackerView: View {
             .navigationBarBackButtonHidden(false)
             .onAppear(){
                 self.dealViewModel.dealList.removeAll()
-                self.dealViewModel.getAllDeals()
+                //self.dealViewModel.getDealsByTag(tag: "Electronics")
+                //self.dealViewModel.getDealsByTag(tag: "Beauty")
+                self.dealViewModel.getDealsByTag(tagArray: ["Beauty", "Electronics"])
             }
         }//NavigationView
     }
