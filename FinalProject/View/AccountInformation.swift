@@ -112,7 +112,6 @@ struct AccountInformation: View {
     //supposed to add the new preference
     private func addPreference(){
         var newPreference = User()
-        newPreference.email = self.email
         newPreference.preferences = self.preference
         
         print(#function, "New Preference : \(newPreference)")

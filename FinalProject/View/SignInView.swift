@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignInView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var userViewModel: UserViewModel
     
     @State private var selection: Int? = nil
     
@@ -43,6 +44,10 @@ struct SignInView: View {
             }
             
             Button(action:{
+                print("Creating Account")
+                if (self.validateData()){
+                    self.addNewUser()
+                }
                 
             }){
                 Text("Sign Me Up!")
@@ -55,6 +60,25 @@ struct SignInView: View {
         }
     }
     }
+    
+    func validateData() -> Bool{
+        //TODO for data validation - Take Home
+        
+        if (self.password != self.confirmPassword){
+            return false
+        }
+        
+        return true
+    }
+    
+    func addNewUser(){
+    
+        
+        //pop current View from the stack
+        self.presentationMode.wrappedValue.dismiss()
+        
+    }
+
 }
 
 struct SignInView_Previews: PreviewProvider {
