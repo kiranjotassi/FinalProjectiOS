@@ -11,6 +11,7 @@ struct SignInView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var userViewModel: UserViewModel
     
+    
     @State private var selection: Int? = nil
     
     @State private var name: String = ""
@@ -19,6 +20,8 @@ struct SignInView: View {
     @State private var confirmPassword: String = ""
     
     var body: some View {
+        NavigationLink(destination: DealTrackerView(), tag: 1, selection: $selection){}
+        
         NavigationView{
         VStack{
             Section{
@@ -47,6 +50,7 @@ struct SignInView: View {
                 print("Creating Account")
                 if (self.validateData()){
                     self.addNewUser()
+                    self.selection = 1
                 }
                 
             }){
@@ -72,8 +76,10 @@ struct SignInView: View {
     }
     
     func addNewUser(){
-    
-        
+        var newUser = User()
+        newUser.email = self.email
+        newUser.name = self.name
+        newUser.password = password
         //pop current View from the stack
         self.presentationMode.wrappedValue.dismiss()
         
