@@ -10,21 +10,21 @@ import SwiftUI
 struct DealTrackerView: View {
     @EnvironmentObject var dealViewModel: DealViewModel
     @State private var selection: Int? = nil
+    let url = URL(fileURLWithPath: "https://vignette.wikia.nocookie.net/progressivepartyofnoobs/images/0/07/NA_icon_292x225-584x450.jpg/revision/latest?cb=20180204041337")
+    
     var body: some View {
         NavigationView{
-            ZStack{
+            ZStack(alignment: .bottom){
+                
                 NavigationLink(destination: DealMakerView(), tag: 1, selection: $selection){}
-                Text("Deals in your Area")
-                    .padding()
-                    .font(.title)
-                    .frame(alignment: .leading)
                 List{
                     ForEach(self.dealViewModel.dealList, id: \.self){ (deal) in
                         HStack{
-                            //https://sfsymbols.com/
-                            Image(systemName: "purchased.circle")
-                                .padding()
-                                .font(.system(size: 50))
+                            
+                            Image(deal.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                
                             VStack(alignment: .leading){
                                 Text("Store Name: \(deal.store)")
                                 Text("Promotion: \(deal.advertisedDeal)")
@@ -39,6 +39,7 @@ struct DealTrackerView: View {
                         }//HStack
                     }//For
                 }//List
+                
                 Button(action:
                         {
                             print("New Deal")
@@ -47,7 +48,7 @@ struct DealTrackerView: View {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .frame(width: 80, height: 80)
-                        .foregroundColor(Color(red: 155/255, green: 100/255, blue: 255/255))
+                        .foregroundColor(Color(.black))
                         .shadow(color: .green, radius: 1, x: 1, y: 1)
                 }
             }//ZStack
@@ -55,8 +56,7 @@ struct DealTrackerView: View {
             .navigationBarBackButtonHidden(false)
             .onAppear(){
                 self.dealViewModel.dealList.removeAll()
-                //self.dealViewModel.getDealsByTag(tag: "Electronics")
-                //self.dealViewModel.getDealsByTag(tag: "Beauty")
+                self.dealViewModel.fetchData()
                 self.dealViewModel.getDealsByTag(tagArray: ["Beauty", "Electronics"])
             }
         }//NavigationView

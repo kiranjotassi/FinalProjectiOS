@@ -25,6 +25,27 @@ class DealViewModel: ObservableObject{
         }
     }
     
+    func fetchData(){
+        db.collection(COLLECTION_NAME).addSnapshotListener{(querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("No Documents")
+                return
+            }
+            self.dealList = documents.map { (queryDocumentSnapshot) -> Deal in
+                let data = queryDocumentSnapshot.data()
+                
+                let store = data["store"] as? String ?? ""
+                let image = data["image"] as? String ?? ""
+                let advertisedDeal = data["advertisedDeal"] as? String ?? ""
+                let dealLocation = data["dealLocation"] as? String ?? ""
+                let tagArray = data["tagArray"] as? Array<String> ?? []
+                
+                return Deal(store: store, image: image, advertisedDeal: advertisedDeal, dealLocation: dealLocation, tagArray: tagArray)
+                
+            }
+        }
+    }
+    
 //    func getDealsByTag(){
     func getDealsByTag(tagArray: Array<String>){
 //        let tagArray == an array of tags from the user preferences
@@ -58,6 +79,7 @@ class DealViewModel: ObservableObject{
 
                         if doc.type == .modified{
                             //TODO for updated document
+                            
                         }
 
                         if doc.type == .removed{
@@ -112,6 +134,7 @@ class DealViewModel: ObservableObject{
                         
                         if doc.type == .modified{
                             //TODO for updated document
+                            
                         }
                         
                         if doc.type == .removed{
@@ -157,7 +180,7 @@ class DealViewModel: ObservableObject{
         
         db.collection(COLLECTION_NAME)
             .document(self.dealList[index].id!)
-            .updateData(["store" : deal.store , "advertisedDeal" : deal.advertisedDeal ]){ (error) in
+            .updateData(["store" : deal.store , "advertisedDeal" : deal.advertisedDeal, "image" : deal.image ]){ (error) in
                 if let error = error{
                     Logger().error("Error updating document \(error.localizedDescription)")
                 }else{
