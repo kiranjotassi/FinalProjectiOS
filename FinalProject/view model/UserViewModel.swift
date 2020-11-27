@@ -12,7 +12,6 @@ import Firebase
 
 public class UserViewModel: ObservableObject{
     @Published var preferenceList = [User]()
-    
     private var db = Firestore.firestore()
     
     func addPreferences(newPreference: User){
@@ -31,10 +30,9 @@ public class UserViewModel: ObservableObject{
             .addSnapshotListener({ (querySnapshot, error) in
             
                 guard let snapshot = querySnapshot else{
-                    print(#function, "Error fetching documents \(error?.localizedDescription)")
+                    //print(#function, "Error fetching documents \(error?.localizedDescription)")
                     return
                 }
-                
                 //succesfully received documents
                 snapshot.documentChanges.forEach{(doc) in
                     var user = User()

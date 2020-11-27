@@ -20,7 +20,7 @@ struct AccountInformation: View {
     
     var body: some View {
         NavigationView{
-            
+
             
             VStack{
                 Section{
@@ -35,7 +35,6 @@ struct AccountInformation: View {
                             .padding()
                             .font(.headline)
                         Spacer()
-                        //TODO: put name of user here -> temporarily set as default
                         Text("John Doe")
                             .padding()
                     }
@@ -72,12 +71,7 @@ struct AccountInformation: View {
                     Text("Add Preference")
                 }
                 
-                
-                
                 List{
-                    //TODO: This is where the list of user prefererred tags will go
-                    //-> will populate by default for now until we have the DB set up
-                    
                     ForEach(self.userViewModel.preferenceList, id: \.self){(preference) in
                         Text("\(preference.preferences)")
                     }
@@ -112,7 +106,6 @@ struct AccountInformation: View {
     //supposed to add the new preference
     private func addPreference(){
         var newPreference = User()
-        newPreference.email = self.email
         newPreference.preferences = self.preference
         
         print(#function, "New Preference : \(newPreference)")
