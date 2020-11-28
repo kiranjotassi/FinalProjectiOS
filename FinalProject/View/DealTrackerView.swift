@@ -10,7 +10,7 @@ import SwiftUI
 struct DealTrackerView: View {
     @EnvironmentObject var dealViewModel: DealViewModel
     @State private var selection: Int? = nil
-    let url = URL(fileURLWithPath: "https://vignette.wikia.nocookie.net/progressivepartyofnoobs/images/0/07/NA_icon_292x225-584x450.jpg/revision/latest?cb=20180204041337")
+    var tagArray: [String] = []
     
     var body: some View {
         NavigationView{
@@ -39,24 +39,26 @@ struct DealTrackerView: View {
                         }//HStack
                     }//For
                 }//List
-                
-                Button(action:
-                        {
-                            print("New Deal")
-                            self.selection = 1
-                        }){
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .foregroundColor(Color(.black))
-                        .shadow(color: .green, radius: 1, x: 1, y: 1)
-                }
             }//ZStack
             .navigationBarTitle("Available Deals", displayMode: .inline)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button {
+                        print("New Deal")
+                        self.selection = 1
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                    }
+
+                }
+            }
             .navigationBarBackButtonHidden(false)
-            .onAppear(){
+            .onDisappear(){
                 self.dealViewModel.dealList.removeAll()
+            }
+            .onAppear(){
                 self.dealViewModel.fetchData()
+                self.dealViewModel.dealList.removeAll()
                 self.dealViewModel.getDealsByTag(tagArray: ["Beauty", "Electronics"])
             }
         }//NavigationView

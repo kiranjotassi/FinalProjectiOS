@@ -95,7 +95,7 @@ struct MapView : UIViewRepresentable{
         locationManager.addPinToMapView(mapView: uiView, coordinates: sourceCoordinates, title: self.locationManager.address)
         
         let destinationCoordinates = self.parkingCoordinates
-        self.locationManager.addPinToMapView(mapView: uiView, coordinates: destinationCoordinates, title: "You parked here")
+        self.locationManager.addPinToMapView(mapView: uiView, coordinates: destinationCoordinates, title: "Deal Here")
         
         uiView.setRegion(region, animated: true)
         

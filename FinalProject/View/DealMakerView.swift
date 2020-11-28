@@ -15,8 +15,8 @@ struct DealMakerView: View {
     @State private var store: String = ""
     @State private var image: String = ""
     @State private var advertisedDeal: String = ""
-    @State private var tagArray: Array<String> = []
-    @State private var tag: String = ""
+    @State var tags: [String] = ["Beauty", "Electronics", "Outdoor", "Clothing", "Food"]
+    @State var preferences: [String] = []
     @State private var dealLocation: String = ""
     @State private var dealLat: Double = 0.0
     @State private var dealLng: Double = 0.0
@@ -28,9 +28,21 @@ struct DealMakerView: View {
                     TextField("Store Name", text: $store).autocapitalization(.words)
                     TextField("Image Link", text: $image)
                     TextField("Advertised Deal", text: $advertisedDeal)
-//  TODO turn tag into a multiSelect then append all tags to tag array
-                    TextField("Category Tag", text: $tag).autocapitalization(.words)
                     Text("Store wide sale at some X% off               Item name with price or X% off")
+                }
+                Section(header: Text("Prefence Selection")) {
+                    List {
+                        ForEach(self.tags, id: \.self) { tag in
+                            PreferenceSelectionRow(title: tag, isSelected: self.preferences.contains(tag)) {
+                                if self.preferences.contains(tag) {
+                                    self.preferences.removeAll(where: { $0 == tag })
+                                }
+                                else {
+                                    self.preferences.append(tag)
+                                }
+                            }
+                        }
+                    }
                 }
                 
                 Section{
@@ -59,10 +71,9 @@ struct DealMakerView: View {
     
     private func addDeal(){
         var newDeal = Deal()
-        tagArray.append(tag)
         newDeal.store = self.store
         newDeal.image = self.image
-        newDeal.tagArray = self.tagArray
+        newDeal.tagArray = self.preferences
         newDeal.advertisedDeal = self.advertisedDeal
         newDeal.dealLocation = self.dealLocation
         newDeal.dealLat = self.dealLat
@@ -71,7 +82,7 @@ struct DealMakerView: View {
         print(#function, "New Deal : \(newDeal)")
         
         dealViewModel.addDeal(newDeal: newDeal)
-        
+        self.dealViewModel.fetchData()
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -89,7 +100,23 @@ struct DealMakerView: View {
         self.dealLng = self.locationManager.lng + (Double.random(in: -0.06...0.06))
     }
 }
-
+struct PreferenceSelectionRow: View {
+    var title: String
+    var isSelected: Bool
+    var action: () -> Void
+    
+    var body: some View {
+        Button(action: self.action) {
+            HStack {
+                Text(self.title)
+                if self.isSelected {
+                    Spacer()
+                    Image(systemName: "checkmark")
+                }
+            }
+        }
+    }
+}
 struct DealMakerView_Previews: PreviewProvider {
     static var previews: some View {
         DealMakerView()

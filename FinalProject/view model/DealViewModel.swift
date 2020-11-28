@@ -38,7 +38,7 @@ class DealViewModel: ObservableObject{
                 let image = data["image"] as? String ?? ""
                 let advertisedDeal = data["advertisedDeal"] as? String ?? ""
                 let dealLocation = data["dealLocation"] as? String ?? ""
-                let tagArray = data["tagArray"] as? Array<String> ?? []
+                let tagArray = data["tagArray"] as? [String] ?? []
                 
                 return Deal(store: store, image: image, advertisedDeal: advertisedDeal, dealLocation: dealLocation, tagArray: tagArray)
                 
