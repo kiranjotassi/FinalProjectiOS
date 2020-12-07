@@ -12,15 +12,19 @@ struct AccountInformation: View {
     
     @State private var selection: Int? = nil
     @State private var sheetShowing = false
+    @State private var name: String = ""
+    @State private var dealLocation: String = ""
     
     @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var dealViewModel: DealViewModel
     
     @State var preferences: [String] = []
+    @State var preference: String = ""
     @State var tags: [String] = ["Beauty", "Electronics", "Outdoor", "Clothing", "Food"]
     @State private var email = ""
     
     var body: some View {
-        NavigationView{
+ 
             VStack{
                 Section{
                     //https://sfsymbols.com/
@@ -34,7 +38,7 @@ struct AccountInformation: View {
                             .padding()
                             .font(.headline)
                         Spacer()
-                        Text("John Doe")
+                        Text("\(name)")
                             .padding()
                     }
                 }//Section
@@ -44,7 +48,7 @@ struct AccountInformation: View {
                             .padding()
                             .font(.headline)
                         Spacer()
-                        Text("Toronto Premium Outlet")
+                        Text("\(dealLocation)")
                             .padding()
                     }
                 }
@@ -64,12 +68,6 @@ struct AccountInformation: View {
                     .font(.title)
                     .frame(alignment: .leading)
                 
-                Button(action:{
-                    self.sheetShowing = true
-                }){
-                    Text("Add Preference")
-                }
-                
                 List {
                     ForEach(self.tags, id: \.self) { tag in
                         PreferenceSelectionRow(title: tag, isSelected: self.preferences.contains(tag)) {
@@ -82,10 +80,38 @@ struct AccountInformation: View {
                         }
                     }
                 }
+                Button(action:{
+                    self.addPreference()
+                    sheetShowing = true
+                }){
+                    Text("Add Preference")
+                        .accentColor(Color.white)
+                        .padding()
+                        .background(Color(UIColor.darkGray))
+                        .cornerRadius(5.0)
+                }
             }//VStack
+            .sheet(isPresented: $sheetShowing){
+                TextField("Preference", text: $preference)
+                Button(action:{
+                    if preference == "" || preference == " " {
+                    }else{
+                        preferences.append(preference)
+                    }
+                    preference = ""
+                    sheetShowing = false
+                }){
+                    Text("Add Preference")
+                        .accentColor(Color.white)
+                        .padding()
+                        .background(Color(UIColor.darkGray))
+                        .cornerRadius(5.0)
+                }
+                
+            }
             .navigationBarTitle("Account Info", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
-        }//NavigationView
+            
     }
     //supposed to add the new preference
     private func addPreference(){

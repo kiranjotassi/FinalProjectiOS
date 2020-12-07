@@ -14,9 +14,6 @@ struct Notifications: View {
     
     
     var body: some View {
-        
-        
-        NavigationView{
                 List{
                     //NOTIFICATIONS WILL BE ADDED AUTOMATICALLY ONCE THE DB IS IMPLEMENTED -> populated by default for now
                     Text("There is a new deal in the area. Check the map for more information.")
@@ -38,11 +35,6 @@ struct Notifications: View {
                                         }
                 )
             .navigationViewStyle(StackNavigationViewStyle())
-            
-        }//NavigationView
-        
-        
-        
     }
 }
 

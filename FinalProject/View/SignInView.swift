@@ -20,8 +20,6 @@ struct SignInView: View {
     @State private var confirmPassword: String = ""
     
     var body: some View {
-        NavigationLink(destination: DealTrackerView(), tag: 1, selection: $selection){}
-        
         NavigationView{
         VStack{
             Section{
@@ -45,9 +43,10 @@ struct SignInView: View {
                     .padding()
                 
             }
-            
+            NavigationLink(destination: DealTrackerView(), tag: 1, selection: $selection){}
             Button(action:{
                 print("Creating Account")
+                
                 if (self.validateData()){
                     self.addNewUser()
                     self.selection = 1
@@ -62,7 +61,9 @@ struct SignInView: View {
             }
             
         }
+       
     }
+        .navigationBarBackButtonHidden(true)
     }
     
     func validateData() -> Bool{
@@ -79,7 +80,7 @@ struct SignInView: View {
         var newUser = User()
         newUser.email = self.email
         newUser.name = self.name
-        newUser.password = password
+        newUser.password = self.password
         //pop current View from the stack
         self.presentationMode.wrappedValue.dismiss()
         
