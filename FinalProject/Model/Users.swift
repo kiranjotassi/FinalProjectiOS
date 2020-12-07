@@ -14,12 +14,12 @@ struct User: Codable, Hashable{
     var name: String = ""
     var email: String = ""
     var password: String = ""
-    var preferences: String = ""
+    var preferences: [String] = []
     
     
     init(){}
     
-    init(email: String, name: String, password: String, preferences: String){
+    init(email: String, name: String, password: String, preferences: [String]){
         self.email = email
         self.name = name
         self.password = password
