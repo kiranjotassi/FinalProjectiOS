@@ -67,8 +67,6 @@ struct SignInView: View {
     }
     
     func validateData() -> Bool{
-        //TODO for data validation - Take Home
-        
         if (self.password != self.confirmPassword){
             return false
         }
@@ -81,11 +79,9 @@ struct SignInView: View {
         newUser.email = self.email
         newUser.name = self.name
         newUser.password = self.password
-        //pop current View from the stack
+        userViewModel.addUser(newUser: newUser)
         self.presentationMode.wrappedValue.dismiss()
-        
     }
-
 }
 
 struct SignInView_Previews: PreviewProvider {

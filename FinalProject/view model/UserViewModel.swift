@@ -12,6 +12,8 @@ import Firebase
 
 public class UserViewModel: ObservableObject{
     @Published var preferenceList = [User]()
+    @Published var userName = String()
+    
     private var db = Firestore.firestore()
     private let COLLECTION_NAME = "Deals"
     
@@ -20,6 +22,13 @@ public class UserViewModel: ObservableObject{
             _ = try db.collection("Users").addDocument(from: newPreference)
         }catch let error as NSError{
             print(#function, "Error creating document : \(error.localizedDescription)")
+        }
+    }
+    func addUser(newUser: User){
+        do{
+            _ = try db.collection("Users").addDocument(from: newUser)
+        }catch let error as NSError{
+            print(#function, "error creating document: \(error.localizedDescription)")
         }
     }
     func getAllPreferences(){
