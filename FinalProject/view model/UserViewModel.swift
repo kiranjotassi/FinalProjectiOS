@@ -9,9 +9,11 @@ import Foundation
 import SwiftUI
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 public class UserViewModel: ObservableObject{
-    @Published var preferenceList = [User]()
+    @Published var preferenceList = [String]()
+    @Published var userInfo = [User]()
     @Published var userName = String()
     
     private var db = Firestore.firestore()
@@ -51,15 +53,7 @@ public class UserViewModel: ObservableObject{
                         user = try doc.document.data(as: User.self)!
                         
                         if doc.type == .added{
-                            self.preferenceList.append(user)
-                        }
-                        
-                        if doc.type == .modified{
-                            //TODO for updated document
-                        }
-                        
-                        if doc.type == .removed{
-                            //TODO for deleted document
+                            self.userInfo.append(user)
                         }
                         
                     }catch let error as NSError{
@@ -68,7 +62,7 @@ public class UserViewModel: ObservableObject{
                 }
             })
         
-        print(#function, "Preference List : ", self.preferenceList)
+        print(#function, "Preference List : ", self.userInfo)
     }
     func fetchData(){
         db.collection(COLLECTION_NAME).addSnapshotListener{(querySnapshot, error) in
@@ -76,7 +70,7 @@ public class UserViewModel: ObservableObject{
                 print("No Documents")
                 return
             }
-            self.preferenceList = documents.map { (queryDocumentSnapshot) -> User in
+            self.userInfo = documents.map { (queryDocumentSnapshot) -> User in
                 let data = queryDocumentSnapshot.data()
                 
                 let name = data["name"] as? String ?? ""

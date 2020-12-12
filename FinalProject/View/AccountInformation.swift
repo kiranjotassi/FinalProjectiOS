@@ -72,10 +72,12 @@ struct AccountInformation: View {
                     ForEach(self.tags, id: \.self) { tag in
                         PreferenceSelectionRow(title: tag, isSelected: self.preferences.contains(tag)) {
                             if self.preferences.contains(tag) {
-                                self.preferences.removeAll(where: { $0 == tag })
+                                preferences.insert(contentsOf: tags, at: 0)
+                                print(preferences[0])
                             }
                             else {
                                 self.preferences.append(tag)
+                                
                             }
                         }
                     }
@@ -91,36 +93,22 @@ struct AccountInformation: View {
                         .cornerRadius(5.0)
                 }
             }//VStack
-            .sheet(isPresented: $sheetShowing){
-                TextField("Preference", text: $preference)
-                Button(action:{
-                    if preference == "" || preference == " " {
-                    }else{
-                        preferences.append(preference)
-                    }
-                    preference = ""
-                    sheetShowing = false
-                }){
-                    Text("Add Preference")
-                        .accentColor(Color.white)
-                        .padding()
-                        .background(Color(UIColor.darkGray))
-                        .cornerRadius(5.0)
-                }
-                
-            }
             .navigationBarTitle("Account Info", displayMode: .inline)
             .navigationBarBackButtonHidden(false)
             
     }
     //supposed to add the new preference
     private func addPreference(){
-        var newPreference = User()
-        newPreference.email = email
-        print(#function, "New Preference : \(newPreference)")
-        userViewModel.addPreferences(newPreference: newPreference)
+        var newUser = User()
+        newUser.email = email
+        newUser.name = name
+        //adds in the user preferences
+        newUser.preferences = preferences
+        print(#function, "New Preference : \(newUser)")
+        userViewModel.addPreferences(newPreference: newUser)
         self.userViewModel.fetchData()
         self.presentationMode.wrappedValue.dismiss()
+        userViewModel.preferenceList = preferences
     }
     
     struct preferenceSelectionRow:View{
