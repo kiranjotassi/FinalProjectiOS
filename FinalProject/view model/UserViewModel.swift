@@ -64,6 +64,7 @@ public class UserViewModel: ObservableObject{
         
         print(#function, "Preference List : ", self.userInfo)
     }
+    //this needs to be rewritten -> it needs to be re written so that it will actually work
     func fetchData(){
         db.collection(COLLECTION_NAME).addSnapshotListener{(querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {

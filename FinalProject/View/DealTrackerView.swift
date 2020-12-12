@@ -17,7 +17,7 @@ struct DealTrackerView: View {
         ZStack(alignment: .bottom){
             
             NavigationLink(destination: DealMakerView(), tag: 1, selection: $selection){}
-            NavigationLink(destination: Notifications(), tag: 2, selection: $selection){}
+            NavigationLink(destination: AccountInformation(), tag: 2, selection: $selection){}
             List{
                 ForEach(self.dealViewModel.dealList, id: \.self){ (deal) in
                     HStack{
@@ -54,10 +54,10 @@ struct DealTrackerView: View {
             }
             ToolbarItem(placement:.navigationBarLeading){
                 Button{
-                    print("Go to notifications")
+                    print("Go to account info")
                     self.selection = 2
                 }label:{
-                    Image(systemName: "bell.badge.fill")
+                    Image(systemName: "person.circle")
                 }
             }
         }

@@ -24,7 +24,8 @@ struct AccountInformation: View {
     @State private var email = ""
     
     var body: some View {
- 
+        NavigationLink(destination: Notifications(), tag: 1, selection: $selection){}
+        NavigationLink(destination: DealTrackerView(), tag: 2, selection: $selection){}
             VStack{
                 Section{
                     //https://sfsymbols.com/
@@ -69,7 +70,25 @@ struct AccountInformation: View {
                     .frame(alignment: .leading)
             }//VStack
             .navigationBarTitle("Account Info", displayMode: .inline)
-            .navigationBarBackButtonHidden(false)
+            .navigationBarBackButtonHidden(true)
+            .toolbar(){
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button {
+                        print("Notifications")
+                        self.selection = 1
+                    } label: {
+                        Image(systemName: "bell.badge.fill")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button {
+                        print("Deal Maker View")
+                        self.selection = 2
+                    } label: {
+                        Image(systemName: "map.fill")
+                    }
+                }
+            }
             
     }
 }
