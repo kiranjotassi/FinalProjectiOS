@@ -11,13 +11,14 @@ struct SignInView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var userViewModel: UserViewModel
     
-    
     @State private var selection: Int? = nil
-    
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
+    @State var preferences: [String] = []
+    @State var preference: String = ""
+    @State var tags: [String] = ["Beauty", "Electronics", "Outdoor", "Clothing", "Food"]
     
     var body: some View {
         NavigationView{
@@ -42,6 +43,20 @@ struct SignInView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
+            }
+            List {
+                ForEach(self.tags, id: \.self) { tag in
+                    PreferenceSelectionRow(title: tag, isSelected: self.preferences.contains(tag)) {
+                        if self.preferences.contains(tag) {
+                            preferences.insert(contentsOf: tags, at: 0)
+                            print(preferences[0])
+                        }
+                        else {
+                            self.preferences.append(tag)
+                            
+                        }
+                    }
+                }
             }
             NavigationLink(destination: DealTrackerView(), tag: 1, selection: $selection){}
             Button(action:{
@@ -73,6 +88,12 @@ struct SignInView: View {
         
         return true
     }
+    private func addPreference(){
+        var newUser = User()
+        newUser.email = email
+        newUser.name = name
+        
+    }
     
     func addNewUser(){
         var newUser = User()
@@ -80,7 +101,30 @@ struct SignInView: View {
         newUser.name = self.name
         newUser.password = self.password
         userViewModel.addUser(newUser: newUser)
+        //adds in the user preferences
+        newUser.preferences = preferences
+        print(#function, "New Preference : \(newUser)")
+        userViewModel.addPreferences(newPreference: newUser)
+        self.userViewModel.fetchData()
         self.presentationMode.wrappedValue.dismiss()
+        userViewModel.preferenceList = preferences
+    }
+    struct preferenceSelectionRow:View{
+        var title: String
+        var isSelected: Bool
+        var action: () -> Void
+        
+        var body: some View {
+            Button(action: self.action) {
+                HStack {
+                    Text(self.title)
+                    if self.isSelected {
+                        Spacer()
+                        Image(systemName: "checkmark")
+                    }
+                }
+            }
+        }
     }
 }
 
