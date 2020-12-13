@@ -11,8 +11,6 @@ struct AccountInformation: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State private var selection: Int? = nil
-    @State private var sheetShowing = false
-    //@State private var name: String = ""
     @State private var dealLocation: String = ""
     
     @EnvironmentObject var userViewModel: UserViewModel
@@ -48,7 +46,6 @@ struct AccountInformation: View {
                     .font(.title)
                     .frame(alignment: .leading)
                 List{
-                    //add preferences here once fetched
                     ForEach(self.userViewModel.currentUser.preferences, id: \.self){ (preference) in
                         Text("\(preference)")
                     }
@@ -75,7 +72,6 @@ struct AccountInformation: View {
                 }
             }
             .onAppear(){
-                //make this work
                 self.userViewModel.fetchData()
                 
             }
