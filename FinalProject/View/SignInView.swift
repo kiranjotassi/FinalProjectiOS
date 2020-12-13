@@ -27,7 +27,9 @@ struct SignInView: View {
                 Text("Welcome to FastTrack Deals!")
                     .padding()
                     .font(.title)
+                    .foregroundColor(.purple)
                 Text("Please sign up to being saving!")
+                    .foregroundColor(.purple)
             }
             Section{
                 TextField("Name", text: $name)
