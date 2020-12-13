@@ -43,33 +43,15 @@ struct AccountInformation: View {
                             .padding()
                     }
                 }//Section
-                HStack{
-                    Section{
-                        Text("Last Location")
-                            .padding()
-                            .font(.headline)
-                        Spacer()
-                        Text("\(dealLocation)")
-                            .padding()
-                    }
-                }
-                HStack{
-                    Section{
-                        Text("Number of Deals Used")
-                            .padding()
-                            .font(.headline)
-                        Spacer()
-                        Text("5")
-                            .padding()
-                    }
-                }
-                
                 Text("Shopping Preferences")
                     .padding()
                     .font(.title)
                     .frame(alignment: .leading)
                 List{
                     //add preferences here once fetched
+                    ForEach(self.userViewModel.currentUser.preferences, id: \.self){ (preference) in
+                        Text("\(preference)")
+                    }
                 }
             }//VStack
             .navigationBarTitle("Account Info", displayMode: .inline)
