@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DealTrackerView: View {
     @EnvironmentObject var dealViewModel: DealViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     @State private var selection: Int? = nil
     var tagArray: [String] = []
     
@@ -68,7 +69,7 @@ struct DealTrackerView: View {
         .onAppear(){
             self.dealViewModel.fetchData()
             self.dealViewModel.dealList.removeAll()
-            self.dealViewModel.getDealsByTag(tagArray: ["Beauty", "Electronics"])
+            self.dealViewModel.getDealsByTag(tagArray: userViewModel.currentUser.preferences)
         }
     }
 }

@@ -12,7 +12,7 @@ struct AccountInformation: View {
     
     @State private var selection: Int? = nil
     @State private var sheetShowing = false
-    @State private var name: String = ""
+    //@State private var name: String = ""
     @State private var dealLocation: String = ""
     
     @EnvironmentObject var userViewModel: UserViewModel
@@ -39,7 +39,7 @@ struct AccountInformation: View {
                             .padding()
                             .font(.headline)
                         Spacer()
-                        Text("\(name)")
+                        Text("\(userViewModel.userName)")
                             .padding()
                     }
                 }//Section
@@ -68,6 +68,9 @@ struct AccountInformation: View {
                     .padding()
                     .font(.title)
                     .frame(alignment: .leading)
+                List{
+                    //add preferences here once fetched
+                }
             }//VStack
             .navigationBarTitle("Account Info", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
@@ -88,6 +91,11 @@ struct AccountInformation: View {
                         Image(systemName: "map.fill")
                     }
                 }
+            }
+            .onAppear(){
+                //make this work
+                self.userViewModel.fetchData()
+                
             }
             
     }

@@ -58,7 +58,7 @@ struct SignInView: View {
                     }
                 }
             }
-            NavigationLink(destination: DealTrackerView(), tag: 1, selection: $selection){}
+            NavigationLink(destination: AccountInformation(), tag: 1, selection: $selection){}
             Button(action:{
                 print("Creating Account")
                 
@@ -88,26 +88,26 @@ struct SignInView: View {
         
         return true
     }
-    private func addPreference(){
-        var newUser = User()
-        newUser.email = email
-        newUser.name = name
+    //private func addPreference(){
+        //var newUser = User()
+        //newUser.email = email
+        //newUser.name = name
         
-    }
+   // }
     
     func addNewUser(){
         var newUser = User()
         newUser.email = self.email
         newUser.name = self.name
         newUser.password = self.password
-        userViewModel.addUser(newUser: newUser)
+        userViewModel.userName = name
         //adds in the user preferences
         newUser.preferences = preferences
         print(#function, "New Preference : \(newUser)")
-        userViewModel.addPreferences(newPreference: newUser)
-        self.userViewModel.fetchData()
         self.presentationMode.wrappedValue.dismiss()
         userViewModel.preferenceList = preferences
+        userViewModel.addUser(newUser: newUser)
+        
     }
     struct preferenceSelectionRow:View{
         var title: String

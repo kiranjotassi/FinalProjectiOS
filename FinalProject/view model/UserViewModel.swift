@@ -15,17 +15,13 @@ public class UserViewModel: ObservableObject{
     @Published var preferenceList = [String]()
     @Published var userInfo = [User]()
     @Published var userName = String()
+    @Published var currentUser = User()
     
     private var db = Firestore.firestore()
-    private let COLLECTION_NAME = "Deals"
+    private let COLLECTION_NAME = "Users"
+    var documentid = UUID().uuidString
     
-    func addPreferences(newPreference: User){
-        do{
-            _ = try db.collection("Users").addDocument(from: newPreference)
-        }catch let error as NSError{
-            print(#function, "Error creating document : \(error.localizedDescription)")
-        }
-    }
+    
     func addUser(newUser: User){
         do{
             _ = try db.collection("Users").addDocument(from: newUser)
@@ -66,22 +62,27 @@ public class UserViewModel: ObservableObject{
     }
     //this needs to be rewritten -> it needs to be re written so that it will actually work
     func fetchData(){
-        db.collection(COLLECTION_NAME).addSnapshotListener{(querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else {
-                print("No Documents")
-                return
-            }
-            self.userInfo = documents.map { (queryDocumentSnapshot) -> User in
-                let data = queryDocumentSnapshot.data()
-                
-                let name = data["name"] as? String ?? ""
-                let email = data["email"] as? String ?? ""
-                let password = data["password"] as? String ?? ""
-                let preferences = data["preferences"] as? [String] ?? []
-                
-                return User(email: email, name: name, password: password, preferences: preferences)
-                
-            }
-        }
+        db.collection(COLLECTION_NAME)
+            .whereField("name", isEqualTo: userName)
+            .order(by: "name", descending: true)
+            .addSnapshotListener({ (querySnapshot, error) in
+
+                guard let snapshot = querySnapshot else{
+                    print(#function, "Error fetching documents \(error!.localizedDescription)")
+                    return
+                }
+
+                //succesfully received documents
+                snapshot.documentChanges.forEach{(doc) in
+
+                    do{
+                        self.currentUser = try doc.document.data(as: User.self)!
+                        
+                        
+                    }catch let error as NSError{
+                        print("Error decoding document : \(error.localizedDescription)")
+                    }
+                }
+            })
     }
 }
