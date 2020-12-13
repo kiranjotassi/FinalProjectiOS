@@ -68,7 +68,7 @@ struct DealTrackerView: View {
         }
         .onAppear(){
             self.dealViewModel.dealList.removeAll()
-            self.dealViewModel.getDealsByTag(tagArray: userViewModel.currentUser.preferences)
+            self.dealViewModel.fetchDataByTag(tagArray: userViewModel.currentUser.preferences)
         }
     }
 }

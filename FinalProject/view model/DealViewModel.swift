@@ -46,16 +46,33 @@ class DealViewModel: ObservableObject{
         }
     }
     
-//    func getDealsByTag(){
-    func getDealsByTag(tagArray: Array<String>){
-//        let tagArray == an array of tags from the user preferences
-//        TODO: Change once user preferences is complete
-//              maybe pass the tag array as an arg
-        
-
+    func fetchDataByTag(tagArray: [String]){
         db.collection(COLLECTION_NAME)
             .whereField("tagArray", arrayContainsAny: tagArray)
-            .order(by: "store", descending: true)
+            .addSnapshotListener{(querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("No Documents")
+                return
+            }
+            self.dealList = documents.map { (queryDocumentSnapshot) -> Deal in
+                let data = queryDocumentSnapshot.data()
+                
+                let store = data["store"] as? String ?? ""
+                let image = data["image"] as? String ?? ""
+                let advertisedDeal = data["advertisedDeal"] as? String ?? ""
+                let dealLocation = data["dealLocation"] as? String ?? ""
+                let tagArray = data["tagArray"] as? [String] ?? []
+                print("\(tagArray)")
+                return Deal(store: store, image: image, advertisedDeal: advertisedDeal, dealLocation: dealLocation, tagArray: tagArray)
+                
+            }
+        }
+    }
+    
+
+    func getDealsByTag(tagArray: [String]){
+        db.collection(COLLECTION_NAME)
+            .whereField("tagArray", arrayContainsAny: tagArray)
             .addSnapshotListener({ (querySnapshot, error) in
 
                 guard let snapshot = querySnapshot else{
@@ -110,7 +127,6 @@ class DealViewModel: ObservableObject{
     func getAllDeals(){
         
         db.collection(COLLECTION_NAME)
-            .order(by: "store", descending: true)
             .addSnapshotListener({ (querySnapshot, error) in
                 
                 guard let snapshot = querySnapshot else{
