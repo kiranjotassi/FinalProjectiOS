@@ -28,6 +28,7 @@
 		98E277672539C6470034B9F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E277662539C6470034B9F4 /* Assets.xcassets */; };
 		98E2776A2539C6470034B9F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E277692539C6470034B9F4 /* Preview Assets.xcassets */; };
 		98E2776D2539C6470034B9F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E2776B2539C6470034B9F4 /* LaunchScreen.storyboard */; };
+		98EE19922585C17A002C9871 /* AppLogo120.png in Resources */ = {isa = PBXBuildFile; fileRef = 98EE19912585C17A002C9871 /* AppLogo120.png */; };
 		AC584C6BDDE28E4515107BD8 /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01778A096C2E022DAA54BFDE /* Pods_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		98E277692539C6470034B9F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98E2776C2539C6470034B9F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98E2776E2539C6470034B9F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98EE19912585C17A002C9871 /* AppLogo120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppLogo120.png; sourceTree = "<group>"; };
 		BBBFDB5E56044789111EF22A /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		DE329D2AC1072583813DA0A3 /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +180,7 @@
 				98E277662539C6470034B9F4 /* Assets.xcassets */,
 				98E2776B2539C6470034B9F4 /* LaunchScreen.storyboard */,
 				98E2776E2539C6470034B9F4 /* Info.plist */,
+				98EE19912585C17A002C9871 /* AppLogo120.png */,
 				98E277632539C6450034B9F4 /* FinalProject.xcdatamodeld */,
 				98E277682539C6470034B9F4 /* Preview Content */,
 			);
@@ -255,6 +258,7 @@
 				02C4A52B2561CF8A00B30B3B /* GoogleService-Info.plist in Resources */,
 				98E2776A2539C6470034B9F4 /* Preview Assets.xcassets in Resources */,
 				98E277672539C6470034B9F4 /* Assets.xcassets in Resources */,
+				98EE19922585C17A002C9871 /* AppLogo120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
